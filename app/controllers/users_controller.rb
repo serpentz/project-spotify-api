@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     if @user.save
       render json: @user, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      errors = @user.errors
+      render json: errors, status: :unprocessable_entity
     end
   end
 
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :firstname, :lastname, :email)
+      params.require(:user).permit(:username, :firstname, :lastname, :email, :password)
     end
 end
