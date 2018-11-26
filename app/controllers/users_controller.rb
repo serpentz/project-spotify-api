@@ -13,6 +13,19 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  #GET /user/login
+  def login
+    @login_user = user_params
+    @user = User.find_by(username: @login_user['username'], password: @login_user['password'])
+
+    if @user
+      render json: @user, status: :found, location: @user
+    else
+      render json: {error: "User Not found"}
+    end
+
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)

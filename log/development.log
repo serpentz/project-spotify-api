@@ -497,3 +497,190 @@ Processing by UsersController#index as */*
 Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/user/login" for ::1 at 2018-11-25 18:50:01 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/serpentz/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `username' for #<ActionController::Parameters:0x00007fb17e1ead48>):
+  
+app/controllers/users_controller.rb:19:in `login'
+Started GET "/user/login" for ::1 at 2018-11-25 18:52:01 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 12463ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `username' for #<ActionController::Parameters:0x00007fb17ac0de28>):
+  
+app/controllers/users_controller.rb:20:in `login'
+Started GET "/user/login" for ::1 at 2018-11-25 18:56:12 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "serpentz"], ["password", "password"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 302 Found in 38577ms (Views: 15.8ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users/1" for ::1 at 2018-11-25 18:56:51 -0500
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:61
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for ::1 at 2018-11-25 19:01:55 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/user/login" for ::1 at 2018-11-25 19:05:01 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "serpentz"], ["password", "password"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 302 Found in 14991ms (Views: 1.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/1" for ::1 at 2018-11-25 19:05:16 -0500
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:60
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for ::1 at 2018-11-25 19:13:43 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"abyicherinet@yahoo.com", "password"=>"[FILTERED]"}}
+Started POST "/user/login" for ::1 at 2018-11-25 19:14:02 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"abyicherinet@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "abyicherinet@yahoo.com"], ["password", "a"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 28579ms (Views: 12.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/user/login" for ::1 at 2018-11-25 19:14:55 -0500
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "abyicherinet@yahoo.com"], ["password", "a"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 194633ms (Views: 0.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2018-11-25 19:16:58 -0500
+Started GET "/users" for ::1 at 2018-11-25 19:16:58 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"abyicherinet@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "abyicherinet@yahoo.com"], ["password", "a"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users" for ::1 at 2018-11-25 19:16:58 -0500
+Processing by UsersController#index as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+Processing by UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 16ms (Views: 8.6ms | ActiveRecord: 4.5ms)
+
+
+  ↳ app/controllers/users_controller.rb:8
+Completed 200 OK in 15ms (Views: 3.3ms | ActiveRecord: 9.8ms)
+
+
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 11ms (Views: 3.5ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2018-11-25 19:17:20 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/serpentz/.rvm/gems/ruby-2.4.5/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 23ms (Views: 16.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for ::1 at 2018-11-25 19:17:20 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for ::1 at 2018-11-25 19:17:28 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2018-11-25 19:17:28 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for ::1 at 2018-11-25 19:17:44 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "serpentz"], ["password", "password"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 302 Found in 5ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for ::1 at 2018-11-25 19:17:44 -0500
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:59
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/user/login" for ::1 at 2018-11-25 19:18:14 -0500
+Processing by UsersController#login as JSON
+  Parameters: {"user"=>{"username"=>"serpentz", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["username", "serpentz"], ["password", "password"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 302 Found in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2018-11-25 19:18:14 -0500
+Processing by UsersController#show as JSON
+  Parameters: {"id"=>"1", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:59
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
